@@ -14,7 +14,7 @@ namespace Domain.Mappings
         #region User
         public GeneralProfile()
         {
-           CreateMap<User, UserDTO>().ReverseMap();
+           CreateMap<AppUser, UserDTO>().ReverseMap();
 
         }
 
