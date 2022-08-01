@@ -27,17 +27,19 @@ namespace Entities.Models
         public virtual DbSet<Projekt> Projekts { get; set; } = null!;
         public virtual DbSet<PushimetZyrtare> PushimetZyrtares { get; set; } = null!;
         public virtual DbSet<Roli> Rolis { get; set; } = null!;
+        public virtual DbSet<UserAftesi> UserAftesis { get; set; } = null!;
         public virtual DbSet<UserCertifikate> UserCertifikates { get; set; } = null!;
         public virtual DbSet<UserEdukim> UserEdukims { get; set; } = null!;
         public virtual DbSet<UserPervojePune> UserPervojePunes { get; set; } = null!;
         public virtual DbSet<UserProjekt> UserProjekts { get; set; } = null!;
+        public virtual DbSet<UserRoli> UserRolis { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-J2RGOMU\\SQLEXPRESS;Database=HRDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-U3280M2;Database=HRDB;Trusted_Connection=True;");
             }
         }
 
@@ -60,20 +62,20 @@ namespace Entities.Models
             modelBuilder.Entity<AppUser>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__appUser__CB9A1CDF190F5AEE");
+                    .HasName("PK__appUser__CB9A1CDF893AB46A");
 
                 entity.ToTable("appUser");
 
-                entity.HasIndex(e => e.UserFirstname, "UQ__appUser__4D09B61B75D70C34")
+                entity.HasIndex(e => e.UserFirstname, "UQ__appUser__4D09B61B3B23978F")
                     .IsUnique();
 
-                entity.HasIndex(e => e.UserLastname, "UQ__appUser__66B6E61280985B08")
+                entity.HasIndex(e => e.UserLastname, "UQ__appUser__66B6E6122319CF47")
                     .IsUnique();
 
-                entity.HasIndex(e => e.UserName, "UQ__appUser__66DCF95C6E1C29C0")
+                entity.HasIndex(e => e.UserName, "UQ__appUser__66DCF95CE09B69C2")
                     .IsUnique();
 
-                entity.HasIndex(e => e.UserEmail, "UQ__appUser__D54ADF55565AB173")
+                entity.HasIndex(e => e.UserEmail, "UQ__appUser__D54ADF5533BFA5AE")
                     .IsUnique();
 
                 entity.Property(e => e.UserId)
@@ -103,52 +105,12 @@ namespace Entities.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("userName");
-
-                entity.Property(e => e.UserPassword)
-                    .HasMaxLength(60)
-                    .IsUnicode(false)
-                    .HasColumnName("userPassword")
-                    .IsFixedLength();
-
-                entity.HasMany(d => d.Aftesis)
-                    .WithMany(p => p.Users)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "UserAftesi",
-                        l => l.HasOne<Aftesi>().WithMany().HasForeignKey("AftesiId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__user_Afte__aftes__412EB0B6"),
-                        r => r.HasOne<AppUser>().WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__user_Afte__userI__403A8C7D"),
-                        j =>
-                        {
-                            j.HasKey("UserId", "AftesiId").HasName("PK__user_Aft__1FF18DB3E7966CDC");
-
-                            j.ToTable("user_Aftesi");
-
-                            j.IndexerProperty<Guid>("UserId").HasColumnName("userID");
-
-                            j.IndexerProperty<Guid>("AftesiId").HasColumnName("aftesiID");
-                        });
-
-                entity.HasMany(d => d.Rolis)
-                    .WithMany(p => p.Users)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "UserRoli",
-                        l => l.HasOne<Roli>().WithMany().HasForeignKey("RoliId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__user_Roli__roliI__5441852A"),
-                        r => r.HasOne<AppUser>().WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__user_Roli__userI__534D60F1"),
-                        j =>
-                        {
-                            j.HasKey("UserId", "RoliId").HasName("PK__user_Rol__0435B99AB11711C7");
-
-                            j.ToTable("user_Roli");
-
-                            j.IndexerProperty<Guid>("UserId").HasColumnName("userID");
-
-                            j.IndexerProperty<Guid>("RoliId").HasColumnName("roliID");
-                        });
             });
 
             modelBuilder.Entity<Certifikate>(entity =>
             {
                 entity.HasKey(e => e.CertId)
-                    .HasName("PK__Certifik__D2C93619AD13BEAB");
+                    .HasName("PK__Certifik__D2C93619ECFBDF72");
 
                 entity.ToTable("Certifikate");
 
@@ -170,7 +132,7 @@ namespace Entities.Models
             modelBuilder.Entity<DetajeUser>(entity =>
             {
                 entity.HasKey(e => e.Duid)
-                    .HasName("PK__DetajeUs__2A5FEA6A278AD362");
+                    .HasName("PK__DetajeUs__2A5FEA6A94B9A84E");
 
                 entity.ToTable("DetajeUser");
 
@@ -229,7 +191,7 @@ namespace Entities.Models
             modelBuilder.Entity<DokumentaDetajeUser>(entity =>
             {
                 entity.HasKey(e => e.DokumentId)
-                    .HasName("PK__Dokument__5B754AA7C7BA0CAD");
+                    .HasName("PK__Dokument__5B754AA7230639B9");
 
                 entity.ToTable("Dokumenta_DetajeUser");
 
@@ -251,7 +213,7 @@ namespace Entities.Models
             modelBuilder.Entity<Edukim>(entity =>
             {
                 entity.HasKey(e => e.EduId)
-                    .HasName("PK__Edukim__84C108B2D4F6FAF2");
+                    .HasName("PK__Edukim__84C108B2DA0EEB42");
 
                 entity.ToTable("Edukim");
 
@@ -272,6 +234,8 @@ namespace Entities.Models
                 entity.Property(e => e.LejeId)
                     .HasColumnName("lejeID")
                     .HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.Aprovuar).HasColumnName("aprovuar");
 
                 entity.Property(e => e.DataFillim)
                     .HasColumnType("datetime")
@@ -300,7 +264,7 @@ namespace Entities.Models
             modelBuilder.Entity<PervojePune>(entity =>
             {
                 entity.HasKey(e => e.Ppid)
-                    .HasName("PK__PervojeP__5FD889CDD2F599AA");
+                    .HasName("PK__PervojeP__5FD889CD761D3079");
 
                 entity.ToTable("PervojePune");
 
@@ -368,10 +332,38 @@ namespace Entities.Models
                     .HasColumnName("roliPershkrim");
             });
 
+            modelBuilder.Entity<UserAftesi>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.AftesiId })
+                    .HasName("PK__user_Aft__1FF18DB307D395BA");
+
+                entity.ToTable("user_Aftesi");
+
+                entity.Property(e => e.UserId).HasColumnName("userID");
+
+                entity.Property(e => e.AftesiId).HasColumnName("aftesiID");
+
+                entity.Property(e => e.DataPerfitimit)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dataPerfitimit");
+
+                entity.HasOne(d => d.Aftesi)
+                    .WithMany(p => p.UserAftesis)
+                    .HasForeignKey(d => d.AftesiId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__user_Afte__aftes__412EB0B6");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserAftesis)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__user_Afte__userI__403A8C7D");
+            });
+
             modelBuilder.Entity<UserCertifikate>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.CertId })
-                    .HasName("PK__user_Cer__46B68FBE070A8AD7");
+                    .HasName("PK__user_Cer__46B68FBE136FB2C9");
 
                 entity.ToTable("user_Certifikate");
 
@@ -405,7 +397,7 @@ namespace Entities.Models
             modelBuilder.Entity<UserEdukim>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.EduId })
-                    .HasName("PK__user_Edu__F3D60C54E722CE80");
+                    .HasName("PK__user_Edu__F3D60C54DB8BE317");
 
                 entity.ToTable("user_Edukim");
 
@@ -446,7 +438,7 @@ namespace Entities.Models
             modelBuilder.Entity<UserPervojePune>(entity =>
             {
                 entity.HasKey(e => new { e.Ppid, e.UserId })
-                    .HasName("PK__user_Per__B3612800092478C6");
+                    .HasName("PK__user_Per__B3612800F6BDAB12");
 
                 entity.ToTable("user_PervojePune");
 
@@ -493,7 +485,7 @@ namespace Entities.Models
             modelBuilder.Entity<UserProjekt>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.ProjektId })
-                    .HasName("PK__user_Pro__8CEF50C834C90286");
+                    .HasName("PK__user_Pro__8CEF50C8A1FD23D0");
 
                 entity.ToTable("user_Projekt");
 
@@ -520,6 +512,34 @@ namespace Entities.Models
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__user_Proj__userI__3C69FB99");
+            });
+
+            modelBuilder.Entity<UserRoli>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.RoliId })
+                    .HasName("PK__user_Rol__0435B99A37D8284D");
+
+                entity.ToTable("user_Roli");
+
+                entity.Property(e => e.UserId).HasColumnName("userID");
+
+                entity.Property(e => e.RoliId).HasColumnName("roliID");
+
+                entity.Property(e => e.DataCaktimit)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dataCaktimit");
+
+                entity.HasOne(d => d.Roli)
+                    .WithMany(p => p.UserRolis)
+                    .HasForeignKey(d => d.RoliId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__user_Roli__roliI__5441852A");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserRolis)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__user_Roli__userI__534D60F1");
             });
 
             OnModelCreatingPartial(modelBuilder);

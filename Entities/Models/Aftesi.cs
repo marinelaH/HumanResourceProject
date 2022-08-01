@@ -7,12 +7,12 @@ namespace Entities.Models
     {
         public Aftesi()
         {
-            Users = new HashSet<AppUser>();
+            UserAftesis = new HashSet<UserAftesi>();
         }
 
         public Guid AftesiId { get; set; }
         public string LlojiAftesise { get; set; } = null!;
 
-        public virtual ICollection<AppUser> Users { get; set; }
+        public virtual ICollection<UserAftesi> UserAftesis { get; set; }
     }
 }
