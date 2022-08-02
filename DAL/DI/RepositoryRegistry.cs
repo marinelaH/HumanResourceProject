@@ -16,6 +16,10 @@ namespace DAL.DI
             IncludeRegistry<UnitOfWorkRegistry>();
 
             For<IUserRepository>().Use<UserRepository>();
+
+            For<IAftesiRepository>().Use<AftesiRepository>();
+
+            For<ICertifikateRepository>().Use<CertifikateRepository>();
         }
 
 
