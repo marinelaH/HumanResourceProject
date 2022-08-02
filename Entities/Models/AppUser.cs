@@ -24,10 +24,8 @@ namespace Entities.Models
         public string UserEmail { get; set; } = null!;
         public int BalancaLeje { get; set; }
         public bool UserIsActive { get; set; }
-
-        public byte[]? PasswordHash { get; set; }
-        public byte[]? PasswordSalt { get; set; }
-
+        public byte[] PasswordHash { get; set; } = null!;
+        public byte[] PasswordSalt { get; set; } = null!;
 
         public virtual ICollection<DetajeUser> DetajeUsers { get; set; }
         public virtual ICollection<Leje> Lejes { get; set; }
