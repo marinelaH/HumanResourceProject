@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Concrete
 {
-    internal class UserRepository : BaseRepository<AppUser, Guid>, IUserRepository
+    internal class UserRepository : BaseRepository<AppUser,Guid>, IUserRepository
     {
 
         public UserRepository(HRDB123Context dbContext) : base(dbContext)

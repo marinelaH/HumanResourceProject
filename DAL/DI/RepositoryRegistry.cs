@@ -20,6 +20,32 @@ namespace DAL.DI
             For<IAftesiRepository>().Use<AftesiRepository>();
 
             For<ICertifikateRepository>().Use<CertifikateRepository>();
+
+            For<IDetajeUserRepository>().Use<DetajeUserRepository>();
+
+            For<IDokumentaDetajeUserRepository>().Use<DokumentaDetajeUserRepository>();
+
+            For<IEdukimRepository>().Use<EdukimRepository>();
+
+            For<ILejeRepository>().Use<LejeRepository>();
+
+            For<IPervojPuneRepository>().Use<PervojPuneRepository>();
+
+            For<IProjektRepository>().Use<ProjektRepository>();
+
+            For<IRoliRepository>().Use<RoliRepository>();
+
+            For<IUserAftesiRepository>().Use<UserAftesiRepository>();
+
+            For<IUserCertifikateRepository>().Use<UserCertifikateRepository>();
+
+            For<IUserEdukimRepository>().Use<UserEdukimRepository>();
+
+            For<IUserPervojePuneRepository>().Use<UserPervojePuneRepository>();
+
+            For<IUserProjektRepository>().Use<UserProjektRepository>();
+
+            For<IUserRoliRepository>().Use<UserRoliRepository>();
         }
 
 
