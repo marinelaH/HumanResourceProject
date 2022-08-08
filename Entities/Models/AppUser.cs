@@ -9,12 +9,12 @@ namespace Entities.Models
         {
             DetajeUsers = new HashSet<DetajeUser>();
             Lejes = new HashSet<Leje>();
+            UserAftesis = new HashSet<UserAftesi>();
             UserCertifikates = new HashSet<UserCertifikate>();
             UserEdukims = new HashSet<UserEdukim>();
             UserPervojePunes = new HashSet<UserPervojePune>();
             UserProjekts = new HashSet<UserProjekt>();
-            Aftesis = new HashSet<Aftesi>();
-            Rolis = new HashSet<Roli>();
+            UserRolis = new HashSet<UserRoli>();
         }
 
         public Guid UserId { get; set; }
@@ -22,18 +22,18 @@ namespace Entities.Models
         public string UserFirstname { get; set; } = null!;
         public string UserLastname { get; set; } = null!;
         public string UserEmail { get; set; } = null!;
-        public string UserPassword { get; set; } = null!;
         public int BalancaLeje { get; set; }
         public bool UserIsActive { get; set; }
+        public byte[] PasswordHash { get; set; } = null!;
+        public byte[] PasswordSalt { get; set; } = null!;
 
         public virtual ICollection<DetajeUser> DetajeUsers { get; set; }
         public virtual ICollection<Leje> Lejes { get; set; }
+        public virtual ICollection<UserAftesi> UserAftesis { get; set; }
         public virtual ICollection<UserCertifikate> UserCertifikates { get; set; }
         public virtual ICollection<UserEdukim> UserEdukims { get; set; }
         public virtual ICollection<UserPervojePune> UserPervojePunes { get; set; }
         public virtual ICollection<UserProjekt> UserProjekts { get; set; }
-
-        public virtual ICollection<Aftesi> Aftesis { get; set; }
-        public virtual ICollection<Roli> Rolis { get; set; }
+        public virtual ICollection<UserRoli> UserRolis { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace Entities.Models
         public string TipiLeje { get; set; } = null!;
         public byte[]? DokumentLeje { get; set; }
         public Guid UserId { get; set; }
+        public int Aprovuar { get; set; }
 
         public virtual AppUser User { get; set; } = null!;
     }

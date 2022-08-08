@@ -11,7 +11,7 @@ namespace DAL.Concrete
     internal class UserRepository : BaseRepository<AppUser, Guid>, IUserRepository
     {
 
-        public UserRepository(HRDBContext dbContext) : base(dbContext)
+        public UserRepository(HRDB123Context dbContext) : base(dbContext)
         {
         }
 

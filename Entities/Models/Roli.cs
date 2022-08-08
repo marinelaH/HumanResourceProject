@@ -7,13 +7,13 @@ namespace Entities.Models
     {
         public Roli()
         {
-            Users = new HashSet<AppUser>();
+            UserRolis = new HashSet<UserRoli>();
         }
 
         public Guid RoliId { get; set; }
         public string RoliEmri { get; set; } = null!;
         public string RoliPershkrim { get; set; } = null!;
 
-        public virtual ICollection<AppUser> Users { get; set; }
+        public virtual ICollection<UserRoli> UserRolis { get; set; }
     }
 }

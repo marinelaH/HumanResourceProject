@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 var connString = builder.Configuration.GetConnectionString("RecrutimentDatabase");
-builder.Services.AddDbContext<HRDBContext>(options => options.UseSqlServer(connString));
+builder.Services.AddDbContext<HRDB123Context>(options => options.UseSqlServer(connString));
 
 
 

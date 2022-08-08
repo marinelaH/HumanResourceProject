@@ -12,9 +12,9 @@ namespace DAL.UoW
     {
         private readonly IContainer _container;
 
-        private readonly HRDBContext _context;
+        private readonly HRDB123Context _context;
 
-        public UnitOfWork(IContainer container, HRDBContext context)
+        public UnitOfWork(IContainer container, HRDB123Context context)
         {
             _container = container;
             _context = context;
