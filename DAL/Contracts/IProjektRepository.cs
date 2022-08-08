@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Contracts
 {
-    internal interface IProjektRepository:IRepository<Projekt, Guid>
+    public interface IProjektRepository:IRepository<Projekt, Guid>
     {
+
+       // void CreateProject(Projekt projekt);
+
     }
 }

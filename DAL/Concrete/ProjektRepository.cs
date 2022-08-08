@@ -15,8 +15,9 @@ namespace DAL.Concrete
         {
         }
 
-       
-        }
+        //public void CreateProject(Projekt projekt) => Create(projekt);
+
+    }
 
 
     }

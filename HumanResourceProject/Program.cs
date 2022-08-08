@@ -1,8 +1,12 @@
+using DAL.Contracts;
+using DAL.Concrete;
 using DI;
 using Domain.Mappings;
 using Entities.Models;
 using Lamar.Microsoft.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Domain.Contracts;
+using Domain.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +24,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(GeneralProfile));
-
+builder.Services.AddScoped<IProjektDomain, ProjektDomain>();
 
 builder.Services.AddCors(options =>
 {

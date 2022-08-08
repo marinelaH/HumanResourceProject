@@ -68,5 +68,32 @@ namespace HumanResourceProject.Controllers
             }
         }
     }
+
+   /* [HttpPost]
+    [Route("AddProject")]
+    public IActionResult AddProject([FromBody] Entities.Models.Projekt projekt)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+
+
+            var user = _userDomain.AddProject(eProjekt projekt);
+
+            if (user != null)
+                return Ok(user);
+
+            return NotFound();
+        }
+
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+}
+    */
 }
 
