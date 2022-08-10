@@ -9,6 +9,6 @@ namespace DAL.Contracts
 {
     public interface IUserRepository: IRepository<AppUser, Guid>
     {
-        AppUser GetById(Guid id);
+       
     }
 }

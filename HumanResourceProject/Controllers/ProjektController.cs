@@ -48,6 +48,7 @@ namespace HumanResourceProject.Controllers
         }
 
         [HttpPost]
+       
         public IActionResult CreateProject([FromBody] ProjektPostDTO projekt)
         {
 
@@ -75,5 +76,87 @@ namespace HumanResourceProject.Controllers
         }
 
 
+        [HttpDelete]
+        [Route("{ProjektId}")]
+        public IActionResult DeleteProject([FromRoute]Guid ProjektId)
+        {
+
+
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest();
+
+                _projektDomain.DeleteProject(ProjektId);
+
+                return NoContent();
+
+            }
+
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+            
+
+
+        }
+
+        /*  [HttpPatch]
+
+          public IActionResult UpdateProject([FromBody] ProjektPostDTO projekt)
+          {
+
+              try
+              {
+                  if (!ModelState.IsValid)
+                  {
+                      return BadRequest();
+                  }
+
+                  if (projekt is null)
+                      return BadRequest("ProjektPostDTO object is null");
+
+                  _projektDomain.UpdateProject();
+
+                  return NoContent();
+
+              }
+
+              catch (Exception ex)
+              {
+                  return StatusCode(500, ex);
+              }
+
+          }
+
+          */
+
+        [HttpGet]
+        [Route("{ProjektId}")]
+        public IActionResult GetProjectById([FromRoute] Guid ProjektId)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest();
+                var project = _projektDomain.GetProjectById(ProjektId);
+
+                if (project != null)
+                    return Ok(project);
+
+                return NotFound();
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
+
+
 }
+

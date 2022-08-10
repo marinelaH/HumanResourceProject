@@ -9,6 +9,7 @@ namespace DAL.Contracts
 {
     public interface IUserProjektRepository : IRepository<UserProjekt, Guid>
     {
-
+       // public ICollection<UserProjekt> GetByUserId(Guid id);
+       
     }
 }

@@ -15,11 +15,7 @@ namespace DAL.Concrete
         {
         }
 
-        public AppUser GetById(Guid id)
-        {
-            var user = context.Where(a => a.UserId == id).FirstOrDefault();
-            return user;
-        }
+     
 
 
     }

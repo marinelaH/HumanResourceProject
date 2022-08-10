@@ -14,8 +14,12 @@ namespace Domain.Contracts
          
          IList<ProjektDTO> getAllProjects();
 
+         ProjektDTO GetProjectById(Guid ProjektId); 
+
        // void UpdateProject(ProjektDTO projektdto);
 
-      //  void DeleteProject(Guid ProjektId);
+         void DeleteProject(Guid ProjektId);
+
+         //void UpdateProject()
     }
 }

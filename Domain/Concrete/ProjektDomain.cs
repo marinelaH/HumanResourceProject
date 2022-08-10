@@ -34,11 +34,11 @@ namespace Domain.Concrete
 
 
         }
-        
 
-        
-       
-       public IList<ProjektDTO> getAllProjects()
+
+
+
+        public IList<ProjektDTO> getAllProjects()
         {
             IEnumerable<Projekt> user = projektRepository.GetAll();
 
@@ -46,6 +46,32 @@ namespace Domain.Concrete
             return test;
         }
 
+        public ProjektDTO GetProjectById(Guid ProjektId)
+        {
+            var project = projektRepository.GetById(ProjektId);
+            return _mapper.Map<ProjektDTO>(project);
+
+        }
+
+        public void DeleteProject(Guid ProjektId)
+        {
+            try
+            {
+                var project=projektRepository.GetById(ProjektId);
+                if (project is null)
+                    throw new Exception();
+                projektRepository.Remove(ProjektId);
+                _unitOfWork.Save();
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
         
     }
 }

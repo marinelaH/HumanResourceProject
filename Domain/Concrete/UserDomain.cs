@@ -40,6 +40,7 @@ namespace Domain.Concrete
         public UserDTO GetUserById(Guid id)
         {
             AppUser user = userRepository.GetById(id);
+           // user.UserProjekts =  
             return _mapper.Map<UserDTO>(user);
         }
     }

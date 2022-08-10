@@ -14,10 +14,14 @@ namespace DAL.Concrete
         public UserProjektRepository(HRDB123Context dbContext) : base(dbContext)
         {
         }
+       /* public ICollection<UserProjekt> GetByUserId(Guid id)
+        {
+            var userprojekt = context.where(a => a.UserId == id).FirstOrDefault();
+            return userprojekt;
+        }
 
 
-
-
+        */
     }
 
 

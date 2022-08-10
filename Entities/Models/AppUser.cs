@@ -26,7 +26,6 @@ namespace Entities.Models
         public bool UserIsActive { get; set; }
         public byte[] PasswordHash { get; set; } = null!;
         public byte[] PasswordSalt { get; set; } = null!;
-
         public virtual ICollection<DetajeUser> DetajeUsers { get; set; }
         public virtual ICollection<Leje> Lejes { get; set; }
         public virtual ICollection<UserAftesi> UserAftesis { get; set; }
