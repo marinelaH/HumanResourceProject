@@ -8,5 +8,6 @@ using System.Threading.Tasks;
 namespace DAL.Contracts
 {
     public interface IUserRoliRepository : IRepository<UserRoli, Guid> {
+
     }
 }
