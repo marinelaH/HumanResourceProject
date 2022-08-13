@@ -17,6 +17,7 @@ namespace Domain.Mappings
             CreateMap<AppUser, UserDTO>().ReverseMap();
             CreateMap<Projekt, ProjektDTO>().ReverseMap();
             CreateMap<ProjektPostDTO, Projekt>().ReverseMap();
+
             //CreateMap<AppUser, UserDTO1>().ReverseMap();
 
         }

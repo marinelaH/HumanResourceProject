@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Models;
+using Microsoft.AspNetCore.JsonPatch;
+
 
 namespace Domain.Contracts
 {
@@ -16,10 +18,10 @@ namespace Domain.Contracts
 
          ProjektDTO GetProjectById(Guid ProjektId); 
 
-       // void UpdateProject(ProjektDTO projektdto);
+         void PutProject(Guid ProjektId,ProjektPostDTO projekt);
 
          void DeleteProject(Guid ProjektId);
 
-         //void UpdateProject()
+          void PatchProject(Guid ProjektId,JsonPatchDocument patchDoc);
     }
 }

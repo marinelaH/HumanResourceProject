@@ -38,6 +38,7 @@ namespace Entities.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+                optionsBuilder.EnableSensitiveDataLogging();
                 optionsBuilder.UseSqlServer("Server=HRDB123.mssql.somee.com;Initial Catalog=HRDB123;Persist Security Info=False;User ID=B1234_SQLLogin_1;Password=zbzz7x5mq7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
             }
         }

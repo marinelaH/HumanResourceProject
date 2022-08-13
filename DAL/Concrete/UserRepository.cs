@@ -14,8 +14,8 @@ namespace DAL.Concrete
         public UserRepository(HRDB123Context dbContext) : base(dbContext)
         {
         }
+        
 
-     
 
 
     }

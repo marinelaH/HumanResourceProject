@@ -1,6 +1,8 @@
 ﻿using Domain.Contracts;
 using DTO.UserDTO;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace HumanResourceProject.Controllers
 {
@@ -63,8 +65,8 @@ namespace HumanResourceProject.Controllers
                     return BadRequest("ProjektPostDTO object is null");
 
                 var createdProject = _projektDomain.AddProject(projekt);
-
-                return CreatedAtRoute("", new { id = createdProject.ProjektId,emri = createdProject.EmriProjekt,pershkrimi = createdProject.PershkrimProjekt }, createdProject);
+                return Ok(createdProject);
+               // return CreatedAtRoute("", new { id = createdProject.ProjektId,emri = createdProject.EmriProjekt,pershkrimi = createdProject.PershkrimProjekt }, createdProject);
 
             }
             
@@ -78,7 +80,7 @@ namespace HumanResourceProject.Controllers
 
         [HttpDelete]
         [Route("{ProjektId}")]
-        public IActionResult DeleteProject([FromRoute]Guid ProjektId)
+        public IActionResult DeleteProject(Guid ProjektId)
         {
 
 
@@ -102,9 +104,9 @@ namespace HumanResourceProject.Controllers
 
         }
 
-        /*  [HttpPatch]
-
-          public IActionResult UpdateProject([FromBody] ProjektPostDTO projekt)
+         [HttpPut]
+         [Route("{ProjektId}")]
+        public IActionResult UpdateProject(Guid ProjektId,ProjektPostDTO projekt)
           {
 
               try
@@ -114,10 +116,8 @@ namespace HumanResourceProject.Controllers
                       return BadRequest();
                   }
 
-                  if (projekt is null)
-                      return BadRequest("ProjektPostDTO object is null");
-
-                  _projektDomain.UpdateProject();
+                               
+                _projektDomain.PutProject(ProjektId,projekt);
 
                   return NoContent();
 
@@ -130,7 +130,7 @@ namespace HumanResourceProject.Controllers
 
           }
 
-          */
+          
 
         [HttpGet]
         [Route("{ProjektId}")]
@@ -153,6 +153,33 @@ namespace HumanResourceProject.Controllers
                 throw ex;
             }
         }
+
+        [HttpPatch]
+        [Route("{ProjektId}")]
+        public IActionResult UpdateProject(Guid ProjektId, JsonPatchDocument patchDoc)
+        {
+
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+
+
+                _projektDomain.PatchProject(ProjektId, patchDoc);
+
+                return NoContent();
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
+
+        }
+
 
 
     }
