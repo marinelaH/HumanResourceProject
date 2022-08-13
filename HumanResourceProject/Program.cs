@@ -17,7 +17,7 @@ builder.Services.AddDbContext<HRDB123Context>(options => options.UseSqlServer(co
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -25,6 +25,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(GeneralProfile));
 builder.Services.AddScoped<IProjektDomain, ProjektDomain>();
+builder.Services.AddScoped<IEdukimDomain, EdukimDomain>();
 
 builder.Services.AddCors(options =>
 {

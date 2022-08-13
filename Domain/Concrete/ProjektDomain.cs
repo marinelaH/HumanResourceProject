@@ -5,6 +5,7 @@ using Domain.Contracts;
 using DTO.UserDTO;
 using Entities.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,8 @@ namespace Domain.Concrete
             var projektToReturn = _mapper.Map<ProjektDTO>(projektFinal);
             _unitOfWork.Save();
             return projektToReturn;
-           // UnitOfWork.Save();
-           // var projektToReturn = _mapper.Map<ProjektDTO>(projektEntity);
+          
+         
            
 
 
@@ -72,6 +73,32 @@ namespace Domain.Concrete
 
 
         }
+
+        public void PutProject(Guid ProjektId,ProjektPostDTO projekt)
+        {
+
+            var projektentity = projektRepository.GetById(ProjektId);
+
+            if (projektentity is null)
+                throw new Exception();
+             projektentity = _mapper.Map<ProjektPostDTO,Projekt>(projekt,projektentity);
+ 
+            projektRepository.Update(projektentity);
+            _unitOfWork.Save();
+        }
+        public void PatchProject(Guid ProjektId,JsonPatchDocument patchDoc)
+        {
+            var project = projektRepository.GetById(ProjektId);
+            if (project is null)
+                throw new Exception();
+            patchDoc.ApplyTo(project);
+            _unitOfWork.Save();
+
+        }
         
-    }
+}
+
+
+
+    
 }
