@@ -26,6 +26,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(GeneralProfile));
 builder.Services.AddScoped<IProjektDomain, ProjektDomain>();
 builder.Services.AddScoped<IEdukimDomain, EdukimDomain>();
+builder.Services.AddScoped<ICertifikateDomain, CertifikateDomain>();
+
 
 builder.Services.AddCors(options =>
 {
