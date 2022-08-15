@@ -38,8 +38,12 @@ namespace Entities.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+<<<<<<< HEAD
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=HRDB123.mssql.somee.com;Initial Catalog=HRDB123;Persist Security Info=False; User ID=B1234_SQLLogin_1;Password=zbzz7x5mq7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
+=======
+                optionsBuilder.UseSqlServer("Server=HRDB123.mssql.somee.com;Initial Catalog=HRDB123;Persist Security Info=False;User ID=B1234_SQLLogin_1;Password=zbzz7x5mq7;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
+>>>>>>> origin/master
             }
         }
 

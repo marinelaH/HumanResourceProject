@@ -10,6 +10,11 @@ namespace Domain.Contracts
     public interface IUserDomain
     {
         IList<UserDTO> GetAllUsers();
+     
         UserDTO GetUserById(Guid id);
+
+        // IList<UserDTO1> GetAllUsers1();
+
+
     }
 }

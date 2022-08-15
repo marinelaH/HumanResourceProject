@@ -23,13 +23,24 @@ namespace Domain.Concrete
         public IList<UserDTO> GetAllUsers()
         {
             IEnumerable<AppUser> user = userRepository.GetAll();
+           
             var test = _mapper.Map<IList<UserDTO>>(user);
             return test;
         }
+        /*public IList<UserDTO1> GetAllUsers1()
+        {
+            IEnumerable<AppUser> user = userRepository.GetAll();
 
+            var test = _mapper.Map<IList<UserDTO1>>(user);
+            return test;
+
+
+        }
+             */
         public UserDTO GetUserById(Guid id)
         {
             AppUser user = userRepository.GetById(id);
+           // user.UserProjekts =  
             return _mapper.Map<UserDTO>(user);
         }
     }
