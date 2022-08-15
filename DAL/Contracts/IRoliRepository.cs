@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DAL.Contracts
 {
     public interface IRoliRepository : IRepository<Roli, Guid> {
-        Guid getRoleID(string roleName);
+        //Guid getRoleID(string roleName);
 
     }
 }
