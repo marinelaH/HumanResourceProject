@@ -26,6 +26,13 @@ namespace Entities.Models
         public bool UserIsActive { get; set; }
         public byte[] PasswordHash { get; set; } = null!;
         public byte[] PasswordSalt { get; set; } = null!;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
+>>>>>>> f7b8b08cab4c63435f5c5ec0989881c3b5f88809
         public virtual ICollection<DetajeUser> DetajeUsers { get; set; }
         public virtual ICollection<Leje> Lejes { get; set; }
         public virtual ICollection<UserAftesi> UserAftesis { get; set; }

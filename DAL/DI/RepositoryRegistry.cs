@@ -20,6 +20,11 @@ namespace DAL.DI
             For<IAftesiRepository>().Use<AftesiRepository>();
 
             For<ICertifikateRepository>().Use<CertifikateRepository>();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f7b8b08cab4c63435f5c5ec0989881c3b5f88809
 
             For<IDetajeUserRepository>().Use<DetajeUserRepository>();
 
@@ -46,7 +51,11 @@ namespace DAL.DI
             For<IUserProjektRepository>().Use<UserProjektRepository>();
 
             For<IUserRoliRepository>().Use<UserRoliRepository>();
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
+>>>>>>> f7b8b08cab4c63435f5c5ec0989881c3b5f88809
         }
 
 
