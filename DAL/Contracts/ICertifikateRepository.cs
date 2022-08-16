@@ -9,5 +9,6 @@ namespace DAL.Contracts
 {
     public interface ICertifikateRepository : IRepository<Certifikate, Guid>
     {
+
     }
 }

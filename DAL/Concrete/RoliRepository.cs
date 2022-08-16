@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace DAL.Concrete
 {
-    internal class UserRepository : BaseRepository<AppUser,Guid>, IUserRepository
+    internal class RoliRepository : BaseRepository<Roli, Guid>, IRoliRepository
     {
 
-        public UserRepository(HRDB123Context dbContext) : base(dbContext)
+        public RoliRepository(HRDB123Context dbContext) : base(dbContext)
         {
         }
-        
 
+        
 
 
     }
