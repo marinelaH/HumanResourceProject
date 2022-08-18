@@ -1,10 +1,11 @@
-﻿using Domain.Contracts;
-using DTO.UserDTO;
+﻿//using Domain.Contracts;
+//using DTO.UserDTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HumanResourceProject.Controllers
 
 {
+    /*
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
@@ -68,5 +69,6 @@ namespace HumanResourceProject.Controllers
             }
         }
     }
+    */
 }
 

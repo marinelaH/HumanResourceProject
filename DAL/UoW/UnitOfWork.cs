@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entities.Models;
+using Entities.Model;
 using Lamar;
 
 namespace DAL.UoW
 {
+    
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IContainer _container;
 
-        private readonly RecrutimentContext _context;
+        private readonly  HumanResourcesContext _context;
 
-        public UnitOfWork(IContainer container, RecrutimentContext context)
+        public UnitOfWork(IContainer container, HumanResourcesContext context)
         {
             _container = container;
             _context = context;
@@ -36,5 +37,5 @@ namespace DAL.UoW
             GC.SuppressFinalize(this);
         }
     }
-
+    
 }

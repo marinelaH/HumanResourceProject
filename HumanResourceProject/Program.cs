@@ -1,13 +1,13 @@
 using DI;
 using Domain.Mappings;
-using Entities.Models;
+using Entities.Model;
 using Lamar.Microsoft.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connString = builder.Configuration.GetConnectionString("RecrutimentDatabase");
-builder.Services.AddDbContext<RecrutimentContext>(options => options.UseSqlServer(connString));
+builder.Services.AddDbContext<HumanResourcesContext>(options => options.UseSqlServer(connString));
 
 
 

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DTO.UserDTO;
-using Entities.Models;
+//using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +11,7 @@ namespace Domain.Mappings
 {
     public class GeneralProfile : Profile
     {
+        /*
         #region User
         public GeneralProfile()
         {
@@ -20,6 +21,6 @@ namespace Domain.Mappings
 
         #endregion
 
-
+        */
     }
 }

@@ -1,5 +1,5 @@
 ﻿using DAL.Contracts;
-using Entities.Models;
+//using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Concrete
 {
+    /*
     internal class UserRepository : BaseRepository<User, Guid>, IUserRepository
     {
 
@@ -23,6 +24,6 @@ namespace DAL.Concrete
 
 
     }
-
+    */
 
 }
