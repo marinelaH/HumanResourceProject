@@ -14,7 +14,7 @@ namespace DAL.Concrete
 
         public UserRepository(RecrutimentContext dbContext) : base(dbContext)
         {
-        }
+        }//
 
         public User GetById(Guid id)
         {
