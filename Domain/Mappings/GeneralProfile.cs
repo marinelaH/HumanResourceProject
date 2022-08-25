@@ -1,5 +1,11 @@
 ﻿using AutoMapper;
+using DTO.ArchiveDTO;
+
+using DTO.PermitDTO;
+using DTO.RoleDTO;
+using DTO.RoleDTO1;
 using DTO.UserDTO;
+using Entities.Model;
 //using Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -22,5 +28,23 @@ namespace Domain.Mappings
         #endregion
 
         */
+        #region
+        public GeneralProfile()
+        {
+           
+            
+            CreateMap<Role, RoleDTO1>().ReverseMap();
+            CreateMap<Role, RoleDTO>().ReverseMap();
+
+
+
+            CreateMap<Permit, PermitDTO>().ReverseMap();
+          
+            CreateMap<Archive, ArchiveDTO1>().ReverseMap();
+            CreateMap<Archive, ArchiveDTO>().ReverseMap();
+        }
+
+#endregion
+
     }
 }

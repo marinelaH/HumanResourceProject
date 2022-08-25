@@ -12,7 +12,7 @@ namespace DAL.DI
     {
         public UnitOfWorkRegistry()
         {
-           // For<IUnitOfWork>().Use<UnitOfWork>();
+            For<IUnitOfWork>().Use<UnitOfWork>();
         }
     }
 }

@@ -17,8 +17,13 @@ namespace Domain.DI
         {
             IncludeRegistry<DomainUnitOfWorkRegistry>();
 
-          //  For<IUserDomain>().Use<UserDomain>();
+            //  For<IUserDomain>().Use<UserDomain>();
+           
+            For<IRoleDomain>().Use<RoleDomain>();
+           
+            For<IArchiveDomain>().Use<ArchiveDomain>();
 
+            For<IPermitDomain>().Use<PermitDomain>();
             AddRepositoryRegistries();
             AddHttpContextRegistries();
         }
