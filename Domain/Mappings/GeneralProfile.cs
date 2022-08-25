@@ -24,6 +24,7 @@ namespace Domain.Mappings
            CreateMap<User, UserDTO>().ReverseMap();
 
         }
+        test commit
 
         #endregion
 
